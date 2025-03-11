@@ -4,6 +4,14 @@ def get_date_of_birth(id_number: str) -> str:
     STEP 2: Extract the date of birth from the ID number and return it as a string
     return format: DD/MM/YY:
     """
+
+    year_of_birth= id_number[:2]
+    month_of_birth= id_number [2:4]
+    date = id_number [4:6]
+
+    return f"{date}/{month_of_birth}/{year_of_birth}"
+
+
     pass
 
 # Question 2
@@ -15,9 +23,18 @@ def get_gender(id_number: str) -> str:
     Formula: 1 if the ID number's 7th to 10th digit is less than 5000, the person is
     female and if it is greater than 4999, the person is male.
     """
+
+
+    if int(id_number[6]) > 4:
+        return "Male"
+    return "Female"
     pass
 
+
 # Question 3
+
+def fizzbuzz(n):
+
     """
     Fizzbuzz is a programme that prints the numbers from 1 to n, 
     but for multiples of 3, it prints "Fizz" instead of the number, 
@@ -27,6 +44,17 @@ def get_gender(id_number: str) -> str:
     TODO: define a function called fizzbuzz and implement the fucntionality above.
     """
 
+    for i in range(1, n + 1):
+        if n % 3 == 0 and n % 5 == 0:
+            print("FizzBuzz")
+        elif n % 3 == 0:
+            print ("Fizz")
+        elif n % 5 == 0:
+            print ("Buzz")
+        else:
+            print (n)
+        
+
 
 # Question 4
 def find_even_numbers(numbers):
@@ -34,6 +62,12 @@ def find_even_numbers(numbers):
     in a tuple
 
     Hint: use modulus (%)"""
+
+    even_no = []
+    for n in numbers:
+        if n % 2 == 0:
+            even_no.append(n)
+    return tuple (even_no)
     pass
 
 # Question 5
@@ -42,6 +76,14 @@ def find_odd_numbers(numbers):
     in a tuple
 
     Hint: use modulus (%)"""
+
+    odd_no = []
+
+    for n in numbers:
+        if n % 2 != 0:
+            odd_no.append(n)
+    return tuple (odd_no)
+
     pass
 
 # Question 6
@@ -62,6 +104,21 @@ def return_list_stats(numbers):
         number_of_odd_numbers : the total number of even numbers in the list
              'numbers'
     """
+    unique_num= set(numbers)
+    Max= max(numbers)
+    Min= min(numbers)
+    avarage= sum(numbers)/ len(numbers)
+
+    list_stats= {
+        "unique_numbers": unique_num,
+        "max": Max,
+        "min": Min,
+        "avarage": avarage,
+        "even_numbers": find_even_numbers,
+        "odd_numbers": find_odd_numbers,
+    }
+
+    return list_stats
     pass
 
 # Question 7
@@ -77,7 +134,12 @@ def draw_triangle_reversed(height: int) -> None:
         None: Prints the inverted triangle pattern directly to console.
 
     """
-    pass
+
+    for i in range(height, 0, -1):
+        print("*" * i)
+# draw_triangle_reversed(5)
+
+
 
 # Question 8
 def draw_triangle_prime(height: int) -> None:
